@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu</title>
+<style>
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* header section here */
+header 
+{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 15px 100px;
+    background-color: rgb(243, 234, 234);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+header .logo
+{
+    flex: 25%;
+}
+
+header .logo img 
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+header .logo img:hover 
+{
+    box-shadow: 1px 1px 15px gray;
+    transition: 1.5s;
+}
+
+header nav 
+{
+    display: flex;
+    flex: 75%;
+    justify-content: space-evenly;
+}
+
+header nav a 
+{
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    letter-spacing: 1px;
+    color: black;
+    cursor: pointer;
+}
+
+header nav a:hover 
+{
+    background-color: rgb(239, 240, 240);
+    box-shadow: 1px 1px 8px gray;
+    transition: 1s;
+    border-radius: 8px;
+}
+
+header .overlay
+{
+    display: none;
+}
+
+header .sm-bar
+{
+    display: none;
+}
+
+
+/* 1024px device screen  */
+@media screen and (max-width:1024px) 
+{
+    header{padding: 15px 60px;}
+    header .logo{flex: 20%;}
+    header nav{flex: 80%;}
+}
+
+
+/* 768px device screen  */
+@media screen and (max-width:768px) 
+{
+    header{padding: 15px 40px;}
+    header .logo{flex: 18%;}
+    header .logo img {width: 30px;height: 30px;}
+    header nav{flex: 82%;}
+    header nav a{font-size: 16px;}
+}
+
+
+/* 600px device screen  */
+@media screen and (max-width:600px) 
+{
+    header{padding: 15px 30px;}
+    header nav{display: none;}
+    header .overlay
+{
+    display: flex;
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    opacity: 99%;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+header .overlay .closebtn {
+    position: absolute;
+    top: 25px;
+    right: 36px;
+    font-size: 40px;
+    text-decoration: none;
+  }
+
+  header .overlay-content 
+  {
+    position: relative;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header .overlay a 
+  {
+    padding: 15px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: white;
+    transition: 0.3s;
+  }
+
+  header .overlay a:hover 
+  {
+    color: #f1f1f1;
+  }
+
+header .sm-bar 
+{
+    display: flex;
+    font-size:30px;
+    cursor:pointer; 
+    color: black;
+}
+}
+
+
+
+
+/* 320px device screen  */
+@media screen and (max-width:320px) 
+{
+    header{padding: 15px}
+}
+</style>
+</head>
+
+<body>
+    <!-- header section here -->
+<header>
+    <div class="logo">
+    <img src="./logo.png" alt="logo">    
+    </div>
+    <nav>
+    <a href="#home">home</a>
+    <a href="#about">about</a>
+    <a href="#skill">skills</a>
+    <a href="#project">project</a>
+    <a href="#contact">contact</a>    
+    </nav>
+    
+    <!-- only small screen -->
+    <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+    <a href="#home" onclick="closeNav()">home</a>
+    <a href="#about" onclick="closeNav()">about</a>
+    <a href="#skill" onclick="closeNav()">skills</a>
+    <a href="#project" onclick="closeNav()">project</a>
+    <a href="#contact" onclick="closeNav()">contact</a>
+    </div>
+    </div>
+    <span class="sm-bar" onclick="openNav()">&#9776;</span>
+    
+    </header>
+
+
+<script>
+    // small devices menu
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+  }
+  
+  function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+  }
+</script> 
+   
+</body>
+</html>
